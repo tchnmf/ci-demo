@@ -5,18 +5,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger Workflow in Another Repository
-        run: |
-          # Set the required variables
-          repo_owner="tchnmf" 
-          repo_name="gitops"  
-          event_type="test-result" 
-          service=${{ github.event.inputs.target_service }}"
-          version="${{ github.event.inputs.target_version }}"
-          
-
-
-      
       - name: call the other repo   
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
