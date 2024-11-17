@@ -35,6 +35,7 @@ jobs:
             inputs: {
               message: '${{ steps.git-message.outputs.message }}',
               image: 'sha-${{ steps.git-sha.outputs.sha }}',
+              workflow_id: 'repository_dispatch.yaml',
               sha: '${{ steps.git-sha.outputs.sha }}'
             }
           })
