@@ -32,7 +32,7 @@ jobs:
             owner: 'tchnmf',
             repo: 'gitops',
             ref: 'main',
-            workflow_id: 'workflows/repository_dispatch.yaml',
+            workflow_id: 'workflow_dispatch',
             inputs: {
               message: '${{ steps.git-message.outputs.message }}',
               image: 'sha-${{ steps.git-sha.outputs.sha }}',
