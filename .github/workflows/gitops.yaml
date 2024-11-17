@@ -17,21 +17,4 @@ jobs:
         # run: |
           # jq --help
           # #curl -d "{\"event_type\": \"${EVENT}\"}" -H "Content-Type: application/json" -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.everest-preview+json" "https://api.github.com/repos/${ORG}/${REPO}/dispatches"
-          # curl -d "{\"event_type\":\"test_result\",\"client_payload\":{\"passed\":false,\"message\":\"i-am-robot\"}}" -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.everest-preview+json" "https://api.github.com/repos/${ORG}/${REPO}/dispatches"
-
-      - name: Trigger update workflow in the manifests repository
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.GH_TOKEN }}
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: 'tchnmf',
-              repo: 'gitops',
-              workflow_id: 'repository_dispatch.yaml',
-              ref: 'main',
-              inputs: {
-                message: '${{ steps.git-message.outputs.message }}',
-                image: 'gitops-and-actions:sha-${{ steps.git-sha.outputs.sha }}',
-                sha: '${{ steps.git-sha.outputs.sha }}'
-              }
-            })
+          curl -d "{\"event_type\":\"test_result\",\"client_payload\":{\"passed\":false,\"message\":\"i-am-robot\"}}" -H "Authorization: token ${GITHUB_TOKEN}" -H "Accept: application/vnd.github.everest-preview+json" "https://api.github.com/repos/${ORG}/${REPO}/dispatches"
