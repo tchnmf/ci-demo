@@ -1,0 +1,42 @@
+name: Trigger GitOps Workflow
+
+on:
+  push:
+
+jobs:
+  build-container:
+    runs-on: ubuntu-20.04
+
+    outputs:
+      git-sha: ${{ steps.git-sha.outputs.sha }}
+      git-message: ${{ steps.git-message.outputs.message }}
+
+    steps:
+    - name: Checkout source code
+      uses: actions/checkout@v3
+
+    - name: Set output for Git short SHA
+      id: git-sha
+      run: echo "::set-output name=sha::$(git rev-parse --short HEAD)"
+
+    - name: Fetch latest commit message
+      id: git-message
+      run: echo "::set-output name=message::$(git log -1 --pretty=format:%s)"
+
+
+    - name: Trigger update workflow in the manifests repository
+      uses: actions/github-script@v6
+      with:
+        github-token: ${{ secrets.GH_TOKEN }}
+        script: |
+          await github.rest.actions.createWorkflowDispatch({
+            owner: 'evanshortiss',
+            repo: 'gitops-gh-actions-manifests',
+            workflow_id: 'update-container-image.yaml',
+            ref: 'main',
+            inputs: {
+              message: '${{ steps.git-message.outputs.message }}',
+              image: 'quay.io/evanshortiss/gitops-and-actions:sha-${{ steps.git-sha.outputs.sha }}',
+              sha: '${{ steps.git-sha.outputs.sha }}'
+            }
+          })
