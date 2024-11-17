@@ -30,9 +30,9 @@ jobs:
         github-token: ${{ secrets.GH_TOKEN }}
         script: |
           await github.rest.actions.createWorkflowDispatch({
-            owner: 'evanshortiss',
-            repo: 'gitops-gh-actions-manifests',
-            workflow_id: 'update-container-image.yaml',
+            owner: 'tchnmf',
+            repo: 'gitops',
+            workflow_id: 'repository_dispatch.yaml',
             ref: 'main',
             inputs: {
               message: '${{ steps.git-message.outputs.message }}',
