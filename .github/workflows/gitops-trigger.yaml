@@ -31,7 +31,6 @@ jobs:
           await github.rest.actions.createWorkflowDispatch({
             owner: 'tchnmf',
             repo: 'gitops',
-            workflow_id: 'repository_dispatch.yaml',
             ref: 'main',
             inputs: {
               message: '${{ steps.git-message.outputs.message }}',
