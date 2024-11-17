@@ -5,8 +5,7 @@ on:
 
 jobs:
   build-container:
-    runs-on: ubuntu-20.04
-
+    runs-on: ubuntu-latest
     outputs:
       git-sha: ${{ steps.git-sha.outputs.sha }}
       git-message: ${{ steps.git-message.outputs.message }}
