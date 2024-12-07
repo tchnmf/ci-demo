@@ -37,6 +37,6 @@ jobs:
               deployment_name: 'busybox',
               deployment_env: 'dev',
               image_name: 'registry.hub.docker.com/library/busybox',
-              image_tag: '4.5'
+              image_tag: '5.0'
             }
           })
