@@ -32,7 +32,7 @@ jobs:
             owner: 'tchnmf',
             repo: 'gitops',
             ref: 'main',
-            workflow_id: 'promote-dev.yaml',
+            workflow_id: 'promote-image.yaml',
             inputs: {
               deployment_name: 'busybox',
               deployment_env: 'dev',
