@@ -1,7 +1,7 @@
 #name: Trigger GitOps Workflow
 
 on:
-  tags:
+  push:
 
 jobs:
   build-container:
@@ -37,6 +37,6 @@ jobs:
               deployment_name: 'busybox',
               deployment_env: 'dev',
               image_name: 'registry.hub.docker.com/library/busybox',
-              image_tag: '${{ github.ref_name }}'
+              image_tag: '${{ steps.git-sha.outputs.sha }}'
             }
           })
