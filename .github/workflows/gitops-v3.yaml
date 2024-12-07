@@ -36,7 +36,7 @@ jobs:
             inputs: {
               deployment_name: 'busybox',
               deployment_env: 'dev',
-              image_name: '${{ github.repository }}:${{ github.ref_name }}',
-              image_tag: '${{ github.repository }}:${{ github.sha }}'
+              image_name: 'registry.hub.docker.com/library/busybox',
+              image_tag: '4.5'
             }
           })
