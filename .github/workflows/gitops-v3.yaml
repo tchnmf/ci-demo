@@ -1,4 +1,4 @@
-#name: Trigger GitOps Workflow
+name: Trigger GitOps Workflow
 
 on:
   push:
