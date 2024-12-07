@@ -4,7 +4,7 @@ on:
   push:
 
 jobs:
-  build-container:
+  gitops-trigger:
     runs-on: ubuntu-latest
     outputs:
       git-sha: ${{ steps.git-sha.outputs.sha }}
