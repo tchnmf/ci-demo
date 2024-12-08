@@ -9,10 +9,6 @@ jobs:
   named-tag:
     name: Create Tag
     runs-on: ubuntu-latest
-
-
-    #outputs:
-    #  output1: ${{ steps.step1.outputs.test }}
     
     steps:
       - uses: actions/checkout@v4
@@ -25,3 +21,9 @@ jobs:
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           custom_tag: ${{ env.TAG_ID }}
+
+  call-promote:
+    name: Deploy to dev
+    uses: ./.github/workflows/promote-tag.yml
+    with:
+      tag: ${{ env.TAG_ID }}
