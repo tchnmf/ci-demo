@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: set env
-        run: echo "TAG_ID=$(grep 'version' README.md | awk '{ print $NF }')" >> $GITHUB_ENV
+        run: echo "TAG_ID=$(grep 'version' README.md | awk '{ print $NF }' | tr -d '`' )" >> $GITHUB_ENV
         
       - name: Bump version and push tag
         id: tag_version
