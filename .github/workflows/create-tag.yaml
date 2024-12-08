@@ -17,16 +17,16 @@ jobs:
     #- id: step1
     #  run: echo "test=hello" >> "$GITHUB_OUTPUT"
       
-    - name: Create tag
+    - name: Create tag  
+      uses: actions/github-script@v5
       env:
         TAG_ID: '0.24'
-      uses: actions/github-script@v5
       with:
         github-token: ${{ secrets.GH_TOKEN }}
         script: |
           github.rest.git.createRef({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            ref: "refs/tags/$TAG_ID",
+            ref: refs/tags/$TAG_ID,
             sha: context.sha
           })
