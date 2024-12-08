@@ -11,12 +11,15 @@ jobs:
     #  output1: ${{ steps.step1.outputs.test }}
     
     steps:
+
     - uses: actions/checkout@v3
     
     #- id: step1
     #  run: echo "test=hello" >> "$GITHUB_OUTPUT"
       
     - name: Create tag
+      env:
+        TAG_ID: '0.24'
       uses: actions/github-script@v5
       with:
         github-token: ${{ secrets.GH_TOKEN }}
@@ -24,6 +27,6 @@ jobs:
           github.rest.git.createRef({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            ref: "refs/tags/$NEW_TAG",
+            ref: "refs/tags/$TAG_ID",
             sha: context.sha
           })
