@@ -22,7 +22,7 @@ jobs:
           github_token: ${{ secrets.GH_TOKEN }}
           custom_tag: ${{ env.TAG_ID }}
 
-      - name: Call promote workflow
-        uses: ./.github/workflows/promote-tag.yaml
-        with:
-          tag: ${{ env.TAG_ID }}
+ #     - name: Call promote workflow
+ #       uses: ./.github/workflows/promote-tag.yaml
+ #       with:
+ #         tag: ${{ env.TAG_ID }}
