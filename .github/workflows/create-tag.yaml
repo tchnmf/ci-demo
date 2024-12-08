@@ -2,10 +2,20 @@ on:
   push:
 
 jobs:
-  tag:
+  named-tag:
     name: Create Tag
     runs-on: ubuntu-latest
+
+
+    #outputs:
+    #  output1: ${{ steps.step1.outputs.test }}
+    
     steps:
+    - uses: actions/checkout@v3
+    
+    #- id: step1
+    #  run: echo "test=hello" >> "$GITHUB_OUTPUT"
+      
     - name: Create tag
       uses: actions/github-script@v5
       with:
@@ -14,6 +24,6 @@ jobs:
           github.rest.git.createRef({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            ref: 'refs/tags/0.1',
+            ref: 'refs/tags/$NEW_TAG',
             sha: context.sha
           })
