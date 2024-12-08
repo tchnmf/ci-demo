@@ -1,13 +1,13 @@
 on:
-  #push:
-  #  tags:
-  #    - '*'
-  workflow_call:
-    inputs:
-      tag:
-        type: string
-        required: true
-        description: Tag to publish
+  push:
+    tags:
+      - '*'
+  #workflow_call:
+  #  inputs:
+  #    tag:
+  #      type: string
+  #      required: true
+  #      description: Tag to publish
         
 jobs:
   gitops-trigger:
