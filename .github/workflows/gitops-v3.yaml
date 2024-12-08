@@ -37,7 +37,8 @@ jobs:
             workflow_id: 'promote-image.yaml',
             inputs: {
               image_placeholder: 'busibox-api',
-              image_release: 'registry.io/library/ci-demo:${{ github.ref_name }}',
+              image_name: 'registry.io/library/ci-demo',
+              image_tag: '${{ github.ref_name }}'
               deployment_name: 'busybox',
               deployment_env: 'dev'
             }
