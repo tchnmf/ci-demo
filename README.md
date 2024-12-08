@@ -1,4 +1,4 @@
 # ci-demo
 
 
-###  `version: 0.36`
+###  `version: 0.37`
