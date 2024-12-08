@@ -38,7 +38,7 @@ jobs:
             inputs: {
               image_placeholder: 'busibox-api',
               image_name: 'registry.io/library/ci-demo',
-              image_tag: '${{ github.ref_name }}'
+              image_tag: '${{ github.ref_name }}',
               deployment_name: 'busybox',
               deployment_env: 'dev'
             }
