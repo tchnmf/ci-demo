@@ -4,6 +4,7 @@ on:
       - main
     paths-ignore:
       - '.github/*'
+      
 jobs:
   named-tag:
     name: Create Tag
