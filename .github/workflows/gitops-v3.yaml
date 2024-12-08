@@ -7,7 +7,7 @@ on:
 
 jobs:
   gitops-trigger:
-    name: Publish ${{ github.ref_name }}
+    name: Publish tag ${{ github.ref_name }}
     runs-on: ubuntu-latest
     outputs:
       git-sha: ${{ steps.git-sha.outputs.sha }}
