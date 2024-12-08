@@ -24,6 +24,6 @@ jobs:
 
   call-promote:
     name: Deploy to dev
-    uses: ./.github/workflows/promote-tag.yml
+    uses: ./.github/workflows/promote-tag.yaml
     with:
       tag: ${{ env.TAG_ID }}
