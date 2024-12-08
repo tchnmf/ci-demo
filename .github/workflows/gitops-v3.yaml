@@ -1,4 +1,4 @@
-name: Trigger GitOps Workflow ${{ github.ref_name }}
+name: Trigger GitOps Workflow
 
 on:
   push:
