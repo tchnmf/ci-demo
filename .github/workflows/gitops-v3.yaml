@@ -39,6 +39,6 @@ jobs:
               deployment_name: 'busybox',
               deployment_env: 'dev',
               image_name: 'registry.hub.docker.com/library/busybox',
-              image_tag: '${{ github.ref }}'
+              image_tag: '${{ github.ref_name }}'
             }
           })
