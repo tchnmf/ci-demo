@@ -1,8 +1,14 @@
 on:
-  push:
-    tags:
-      - '*'
-
+  #push:
+  #  tags:
+  #    - '*'
+  workflow_call:
+    inputs:
+      tag:
+        type: string
+        required: true
+        description: Tag to publish
+        
 jobs:
   gitops-trigger:
     name: Publish tag ${{ github.ref_name }}
